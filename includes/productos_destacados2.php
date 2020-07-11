@@ -10,11 +10,10 @@
         </div>
         <?php 
 		//AQUI ES DONDE SE SACAN LOS DATOS, SE COMPRUEBA QUE HAY RESULTADOS
-		if ($totalRows_DatosConsulta > 0) {  
-			 do { 
-                  ?>
-                  <div class="container">
+		if ($totalRows_DatosConsulta > 0): ?>
+        <div class="container">
     		<div class="row">
+				<?php foreach($DatosConsulta as $row_DatosConsulta): ?>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
     					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpeg" alt="Colorlib Template">
@@ -43,16 +42,13 @@
     						</div>
     					</div>
     				</div>
-    			</div>
+				</div>
+				<?php endforeach;?>
     		</div>
-    	</div>
-                  <?php
-              		 } while ($row_DatosConsulta = mysqli_fetch_assoc($DatosConsulta)); 
-		 } 
-		else
-		 { //MOSTRAR SI NO HAY RESULTADOS 
-                echo "no hay resultados";
-                } ?>
+		</div>
+		<?php else: ?>
+		<p>No hay resultados</p>
+		<?php endif; ?>
     </section>
     <hr>
    
